@@ -1,0 +1,12 @@
+set serveroutput on;
+DECLARE  
+   total number(10); 
+BEGIN 
+   UPDATE emp2 SET salary = salary + 500 where id = '6';
+   IF sql%notfound THEN 
+      dbms_output.put_line('no employee selected'); 
+   ELSIF sql%found THEN 
+      total:= sql%rowcount;
+      dbms_output.put_line( total || ' employee selected '); 
+   END IF;  
+END; 
